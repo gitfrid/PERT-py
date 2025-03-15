@@ -34,7 +34,7 @@ To select or deselect all, double-click on the legend. To select a single legend
 
 Interpretation of Causal Effect Estimation:
 
-The causal effect estimation gives a numerical value indicating how much the outcome (reported cases per million) changes when the treatment (coverage) changes by one unit.
+The causal effect estimation gives a numerical value indicating how much the outcome (reported cases per million) changes when the treatment (coverage in percentage) changes by one unit.
 
     Positive causal effect (e.g. 0.5): For each 1% increase in coverage, reported cases expected to increase by 0.5 cases per million.
     Negative causal effect (e.g. -0.5): For each 1% increase in vaccination coverage, reported cases are expected to decrease by 0.5 cases per million.
