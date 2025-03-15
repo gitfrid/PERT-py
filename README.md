@@ -124,7 +124,7 @@ Warning: In order to compare the trends, M-containing vac 1st Dose from 1980 onw
 <br>
 <br>Includes Dropdown menu for easy selection: 
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/D%29%20PERT%20vaccination_vs_reported_cases_dropdown_1980_2023.png width="1280" height="auto">
 <br>
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/D%29%20PERT%20vaccination_vs_reported_cases_dropdown_1980_2023.html) 1980-2023
 <br>Download Trends 1980-2023 as interactive HTML-Files from [root directory](https://github.com/gitfrid/PERT-py/tree/main) for visualizing the downloaded CSV data with trend lines 
