@@ -22,7 +22,7 @@ Phyton script [C) PERT.py](https://github.com/gitfrid/PERT-py/blob/main/C%29%20P
 <br>DoWhy Library see: https://github.com/py-why/dowhy
 
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/C%29%20Dowhy%20causal%20estimate%20on%20mean%20vac%20coverage%20and%20cases%20pertussis%202000-2023.png width="1280" height="auto">
 <br>
 To select or deselect all, double-click on the legend. To select a single legend, click on it once
 <br>
@@ -50,7 +50,7 @@ Phyton script [A) PERT.py](https://github.com/gitfrid/PERT-py/blob/main/A%29%20P
 
 To select or deselect all countries, double-click on the legend. To select a single country, click on it once
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/A%29%20PERT%20vaccination_vs_reported_cases%202000-2023.png width="1280" height="auto">
 <br>
 <br>
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/A%29%20PERT%20vaccination_vs_reported_cases%202000-2023.html) 2000-2023
@@ -58,7 +58,7 @@ To select or deselect all countries, double-click on the legend. To select a sin
 _________________________________________
 
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/A%29%20PERT%20vaccination_vs_reported_cases%201980-2023.png width="1280" height="auto">
 <br>
 
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/A%29%20PERT%20vaccination_vs_reported_cases%201980-2023.html) 1980-2023
@@ -81,7 +81,7 @@ Phyton script [B) PERT.py](https://github.com/gitfrid/PERT-py/blob/main/B%29%20P
 
 **Rising Coverage and Rising Cases:**
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20rising%20vac%20coverage%20and%20rising%20cases%20trend%202000-2023.png width="1280" height="auto">
 <br>
 
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20rising%20vac%20coverage%20and%20rising%20cases%20trend%202000-2023.html) 2000-2023
@@ -90,7 +90,7 @@ _________________________________________
 
 **Falling Coverage and Falling Cases:**
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20falling%20vac%20coverage%20and%20falling%20trend%202000-2023.png width="1280" height="auto">
 <br>
 
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20falling%20vac%20coverage%20and%20falling%20trend%202000-2023.html) 2000-2023
@@ -100,7 +100,7 @@ _________________________________________
 
 **Rising Coverage and Falling Cases:**
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20rising%20vac%20coverage%20and%20falling%20cases%20trend%202000-2023.png width="1280" height="auto">
 <br>
 
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20rising%20vac%20coverage%20and%20falling%20cases%20trend%202000-2023.html) 2000-2023
@@ -110,7 +110,7 @@ _________________________________________
 
 **Falling Coverage and Rising Cases:**
 <br>
-<img src= width="1280" height="auto">
+<img src=https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20falling%20vac%20coverage%20and%20rising%20cases%20trend%202000-2023.png width="1280" height="auto">
 <br>
 
 [Download interactive html](https://github.com/gitfrid/PERT-py/blob/main/B%29%20PERT%20falling%20vac%20coverage%20and%20rising%20cases%20trend%202000-2023.html) 2000-2023
