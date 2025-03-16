@@ -11,9 +11,9 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Load the data with error handling
-vac_coverage_df = pd.read_csv(r"C:\PERT-py\DTP vac coverage 2025-04-03 15-23 UTC.csv", encoding='ISO-8859-1', on_bad_lines='skip', delimiter=';')
-reported_cases_df = pd.read_csv(r"C:\PERT-py\DTP reported cases and incidence 2025-04-03 15-25 RATE.csv", encoding='ISO-8859-1', on_bad_lines='skip', delimiter=';')
-
+vac_coverage_df = pd.read_csv(r"C:\github\PERT-py\DTP vac coverage 2025-04-03 15-23 UTC.csv", encoding='ISO-8859-1', on_bad_lines='skip', delimiter=';')
+reported_cases_df = pd.read_csv(r"C:\github\PERT-py\DTP reported cases and incidence 2025-04-03 15-25 RATE.csv", encoding='ISO-8859-1', on_bad_lines='skip', delimiter=';')
+year_range_text = "2000-2023"
 
 # Clean column names
 vac_coverage_df.columns = vac_coverage_df.columns.str.strip()
@@ -40,8 +40,8 @@ vac_coverage_df = vac_coverage_df.apply(pd.to_numeric, errors='coerce')
 reported_cases_df = reported_cases_df.apply(pd.to_numeric, errors='coerce')
 
 # Filter columns to include only years from 1980 onwards
-vac_coverage_df = vac_coverage_df.loc[:, vac_coverage_df.columns.astype(int) >= 1980]
-reported_cases_df = reported_cases_df.loc[:, reported_cases_df.columns.astype(int) >= 1980]
+vac_coverage_df = vac_coverage_df.loc[:, vac_coverage_df.columns.astype(int) >= 2000]
+reported_cases_df = reported_cases_df.loc[:, reported_cases_df.columns.astype(int) >= 2000]
 
 # Find common countries between both datasets
 common_countries = vac_coverage_df.index.intersection(reported_cases_df.index)
@@ -49,115 +49,103 @@ common_countries = vac_coverage_df.index.intersection(reported_cases_df.index)
 # Sort countries alphabetically
 common_countries = sorted(common_countries)
 
-# Create traces for both datasets (vaccination coverage and reported cases)
-vac_coverage_traces = []
-reported_cases_traces = []
+# Create interleaved traces for both datasets
+traces = []
 
-# For each country, create both the vaccination coverage trace and reported cases trace
 for country in common_countries:
-    # Truncate the country name for the legend if it's too long (e.g., first 20 characters)
+    # Truncate the country name for the legend if it's too long
     legend_name = f'{country[:20]}...' if len(country) > 20 else country
     
-    # Plot the vaccination coverage data
+    # Vaccination coverage trace
     trace_vac_coverage = go.Scatter(
         x=vac_coverage_df.columns,  # Year columns
         y=vac_coverage_df.loc[country],  # Values for this country
         mode='lines',
-        name=f'{legend_name} - Vac Cover',  # Use the truncated name here
+        name=f'{legend_name} - Vac Cover',  # Truncated name
         yaxis='y2',
-        visible=True  # Initially visible
+        visible=True
     )
+    traces.append(trace_vac_coverage)
     
-    # Plot the reported cases data
+    # Reported cases trace
     trace_reported_cases = go.Scatter(
         x=reported_cases_df.columns,  # Year columns
         y=reported_cases_df.loc[country],  # Values for this country
         mode='lines',
-        name=f'{legend_name} - case incidence/1M',  # Use the truncated name here
+        name=f'{legend_name} - case incidence/1M',  # Truncated name
         yaxis='y1',
-        visible=False  # Initially hidden
+        visible=False
     )
-    
-    # Add traces to the respective lists
-    vac_coverage_traces.append(trace_vac_coverage)
-    reported_cases_traces.append(trace_reported_cases)
+    traces.append(trace_reported_cases)
 
 # Layout with two y-axes and legend visibility
 layout = go.Layout(
-    title='Pertussis vaccination coverage vs reported case incidence rate for different countries',
+    title=f'Pertussis vaccination coverage vs reported case incidence rate for different countries {year_range_text}',
     xaxis=dict(title='Year'),
-    yaxis=dict(title='cases/1M', 
-               side='left',
-               tickformat=".0f"
-    ),
+    yaxis=dict(title='cases/1M', side='left', tickformat=".0f"),
     yaxis2=dict(
         title='Vaccination Coverage (%)',
         side='right',
         overlaying='y1',
-        tickformat=".0f",  # Format the numbers to show without thousands separator
-        tickmode='auto',  # Automatically adjust tick positions
-        showgrid=True,  # Show grid lines on the right y-axis
-        ticksuffix=' ',  # Optional: Adds space after tick values (for better readability)
-        tickprefix='',  # Optional: Remove any prefix for the right y-axis ticks
+        tickformat=".0f",
+        tickmode='auto',
+        showgrid=True,
+        ticksuffix=' ',
+        tickprefix=''
     ),
-    showlegend=True,  # Make sure legend is shown
+    showlegend=True,
     legend=dict(
-        x=1.05,  # Move the legend a little further to the right (beyond the plot area)
-        y=1,  # Align legend at the top right
-        traceorder='normal',  # Ensure traces are in the correct order
-        orientation='v',  # Make legend vertical
-        bgcolor='rgba(255, 255, 255, 0.7)',  # Optional: Add a transparent background for readability
-        bordercolor='black',  # Optional: Border color around the legend
-        borderwidth=1,  # Optional: Border width around the legend
-        itemwidth=30,  # Adjust the width of each legend item to fit more compactly
-        itemsizing='trace',  # Ensure each legend item adjusts to its content
-        tracegroupgap=5,  # Adjusts the gap between groups of traces in the legend
-        font=dict(
-            size=10  # Smaller font size for the legend items (adjust as needed)
-        ),
+        x=1.05,
+        y=1,
+        traceorder='normal',  # Default order, traces will already be interleaved
+        orientation='v',
+        bgcolor='rgba(255, 255, 255, 0.7)',
+        bordercolor='black',
+        borderwidth=1,
+        itemwidth=30,
+        itemsizing='trace',
+        tracegroupgap=5,
+        font=dict(size=10),
     ),
     updatemenus=[
-        # Dropdown menu to select visibility of reported cases, vaccination coverage, or both
         dict(
             type='dropdown',
             buttons=[
                 dict(
                     label='Show Vaccination Coverage',
                     method='update',
-                    args=[{'visible': [True] * len(vac_coverage_traces) + [False] * len(reported_cases_traces)},
+                    args=[{'visible': [i % 2 == 0 for i in range(len(traces))]},
                           {'title': 'Pertussis vaccination coverage'}]
                 ),
                 dict(
                     label='Show Reported Cases',
                     method='update',
-                    args=[{'visible': [False] * len(vac_coverage_traces) + [True] * len(reported_cases_traces)},
+                    args=[{'visible': [i % 2 != 0 for i in range(len(traces))]},
                           {'title': 'Reported Cases Incidence Rate'}]
                 ),
                 dict(
                     label='Show Both',
                     method='update',
-                    args=[{
-                        'visible': [True] * len(vac_coverage_traces) + [True] * len(reported_cases_traces)
-                    },
+                    args=[{'visible': [True] * len(traces)},
                           {'title': 'Pertussis Vaccination Coverage and Reported Cases'}]
                 ),
             ],
             direction='down',
             pad={'r': 10, 't': 10},
-            showactive=True,  # Make sure the active button is visible
-            x=0.8,  # Position the dropdown a little further to the right
+            showactive=True,
+            x=0.8,
             xanchor='left',
-            y=1.1,  # Position the dropdown lower down
+            y=1.1,
             yanchor='top',
         ),
     ]
 )
 
 # Create the figure
-fig = go.Figure(data=vac_coverage_traces + reported_cases_traces, layout=layout)
+fig = go.Figure(data=traces, layout=layout)
 
 # Save the plot to an HTML file
-fig.write_html(r"C:\PERT-py\D) PERT vaccination_vs_reported_cases_dropdown_1980_2023.html")
+fig.write_html(fr"C:\github\PERT-py\D) PERT vaccination_vs_reported_cases_dropdown_{year_range_text}.html")
 
 print("Plot has been saved to 'vaccination_vs_reported_cases.html'.")
 
