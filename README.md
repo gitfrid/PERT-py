@@ -11,7 +11,7 @@ Case incidence rate per 1M
 **The results have not been checked for errors. Neither methodological nor technical checks or data cleansing have been performed.**
 _________________________________________
 
-### Dowhy causal impact estimation vax coverage on case incidence rate for differnt counties, <br>DTP-containing vac 3rd Dose
+### Dowhy causal impact estimation vax coverage on case incidence rate for differnt countries, <br>DTP-containing vac 3rd Dose
 
 <br>
 <p>DoWhy is a Python library for causal inference that allows modeling and testing of causal assumptions, based on a unified language for causal inference.
@@ -43,7 +43,7 @@ The causal effect estimation gives a numerical value indicating how much the out
 _________________________________________
 <br>
 
-### Vax coverage vs case incidence rate for differnt counties, DTP-containing vac 3rd Dose
+### Vax coverage vs case incidence rate for differnt countries, DTP-containing vac 3rd Dose
 
 Phyton script [A) PERT.py](https://github.com/gitfrid/PERT-py/blob/main/A%29%20PERT.py) for visualizing the downloaded CSV data
 
@@ -67,7 +67,7 @@ _________________________________________
 _________________________________________
 <br>
 
-### Vax coverage vs case incidence rate for differnt counties including trend line categories ,DTP-containing vac 3rd Dose 2000-2023:
+### Vax coverage vs case incidence rate for differnt countries including trend line categories ,DTP-containing vac 3rd Dose 2000-2023:
     Rising Coverage and Rising Cases:
     Falling Coverage and Falling Cases:
     Rising Coverage and Falling Cases:
@@ -118,7 +118,7 @@ _________________________________________
 _________________________________________
 <br>
 
-### Vax coverage vs case incidence rate for differnt counties including trend line categories , <br>DTP-containing vac 3rd Dose for years 1980-2023:
+### Vax coverage vs case incidence rate for differnt countries including trend line categories , <br>DTP-containing vac 3rd Dose for years 1980-2023:
 
 Warning: In order to compare the trends, M-containing vac 1st Dose from 1980 onwards would also have to be taken into account, which are not included here!
 <br>
