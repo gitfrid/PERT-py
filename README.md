@@ -120,7 +120,7 @@ _________________________________________
 
 ### Vax coverage vs case incidence rate for differnt countries including trend line categories , <br>DTP-containing vac 3rd Dose for years 1980-2023:
 
-Warning: In order to compare the trends, M-containing vac 1st Dose from 1980 onwards would also have to be taken into account, which are not included here!
+Warning: In order to compare the trends, DTP-containing vac 1st Dose from 1980 onwards would also have to be taken into account, which are not included here!
 <br>
 <br>Includes Dropdown menu for easy selection: 
 <br>
